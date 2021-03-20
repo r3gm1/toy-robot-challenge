@@ -1,14 +1,13 @@
-import sys #might not need sys
-import math
-
 '''
     This class will be the one that deals with the coordinates and the position of the Toy Robot on the table.
     I will place more info as I create the functions required. 
 '''
 class Coordinate(object):
     def __init__(self, x=0, y=0): #initalise to be 0 if not specified
-        self.x = x
-        self.y = y
+        self._x = x
+        self._y = y
+
+        print('coordinates created', x, y)
 
     @property
     def x(self):
@@ -19,7 +18,7 @@ class Coordinate(object):
 
     @x.setter
     def set_x(self, new_x):
-        self_.x = int(new_x) # since we are parsing from input, ensure its an int
+        self._x = int(new_x) # since we are parsing from input, ensure its an int
         # TODO: probs add in error validation incase test case is 'pop' as a coordinate
 
     @property
@@ -32,5 +31,15 @@ class Coordinate(object):
         #TODO: add in error validation for test cases --> int wil throw an error on int('pop')
 
 
+
+
     
+
+
+
+
+
+
+
+
 
