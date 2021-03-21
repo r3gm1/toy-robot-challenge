@@ -12,6 +12,10 @@ class Run(object):
         self.robot = ToyRobot(self.table)
 
     def run(self, line):
-        command, args  = self.parse_input.parse(line)
+        command  = self.parse_input.parse(line)
         #TODO: remove args from above line
+        if not command:
+            print('')
+            return
         command.execute(self.robot)
+        return

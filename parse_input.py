@@ -1,4 +1,3 @@
-import re
 from input_commands import Place, Move, Left, Right, Report
 
 
@@ -18,7 +17,7 @@ class ParseInput(object):
         for command in self.valid_commands:
             if cmd_value == command.value:
                 comm = command(args)
-                return comm, args
+                return comm
         
         print('comm not found')
         return
