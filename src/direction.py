@@ -1,4 +1,4 @@
-from coordinates import Coordinate
+from src.coordinates import Coordinate
 '''
     This class will be responsible for the direction aspect of the moving robot.
 '''
@@ -21,6 +21,10 @@ class Direction(object):
             return
 
         self._direction = direction
+
+    def __eq__(self, other):
+        if isinstance(other, Direction):
+            return (self.position == other.position)
 
 
     @property

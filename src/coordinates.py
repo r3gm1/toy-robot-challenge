@@ -12,6 +12,14 @@ class Coordinate(object):
         y = int(self.y) + int(other.y)
         return self.__class__(x, y)
 
+    def __eq__(self, other):
+        '''
+            overriding the == operator so I can use it efficiently in the pytests
+        '''
+        if isinstance(other, Coordinate):
+            return (self.x == other.x) and (self.y == other.y)
+
+        return False
     @property
     def x(self):
         '''

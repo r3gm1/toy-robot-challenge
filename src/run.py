@@ -1,6 +1,6 @@
-from toy_robot import ToyRobot
-from table import Table
-from parse_input import ParseInput
+from src.toy_robot import ToyRobot
+from src.table import Table
+from src.parse_input import ParseInput
 
 class Run(object):
     def __init__(self):
