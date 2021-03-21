@@ -1,4 +1,4 @@
-from src.coordinates import Coordinate
+from coordinates import Coordinate
 '''
     This class will be responsible for the direction aspect of the moving robot.
 '''

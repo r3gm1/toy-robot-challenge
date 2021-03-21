@@ -1,5 +1,5 @@
 import math
-from src.coordinates import Coordinate
+from coordinates import Coordinate
 
 '''
     This class will be the table itself.
