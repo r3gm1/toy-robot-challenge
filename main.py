@@ -1,4 +1,6 @@
 from table import Table
+from run import Run
+import sys
 
 '''
     This file will be called upon running the Robot Challenge task
@@ -6,11 +8,23 @@ from table import Table
 '''
 
 # try creating a table for now
+# 
 def main():
+    '''
+        Unused--- this was only for testing purposes
+    '''
     _table = Table()
 
-    print('okay created')
+def ytb():
+    program = Run()
+    
+    for command in sys.stdin:
+        program.run(command)
 
 
 if __name__ == "__main__":
-    main()
+    ytb()
+
+
+
+

@@ -11,7 +11,7 @@ class Table(object):
         origin = Coordinate(0,0) # south west most corner as specified in the SPEC
         max_top_right = Coordinate(4,4) #The highest and most-right point north-east most corner
         # therefore the table we can create using these constraints
-        self.table = TableCoordinates(origin, max_top_right)
+        self.table_boundaries = TableCoordinates(origin, max_top_right)
 
     
 class TableCoordinates(object):
@@ -43,11 +43,29 @@ class TableCoordinates(object):
         return self._max_bottom
     
     @property
+    def max_left(self):
+        return self._max_left
+
+    @property
     def max_right(self):
         return self._max_right
 
-    @property
-    def max_left(self):
-        return self._max_left_
+    def value_between(self, tested, val_one, val_two):
+        '''
+            Used to check if param 'tested' value is between val_one and val_two [inclusive]
+        '''
+        return (int(tested) >= int(val_one)) and (int(tested) <= int(val_two))
+
+
+    def valid_coordinate(self, coordinate):
+        '''
+            Check if the 'coordinate' parameter is within the constraints of the table
+        '''
+        valid_x_value = self.value_between(coordinate.x, self._max_left, self._max_right)
+        valid_y_value = self.value_between(coordinate.y, self._max_bottom, self._max_top)
+
+        return valid_x_value and valid_y_value
+        
+
 
      
