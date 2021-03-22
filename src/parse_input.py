@@ -1,4 +1,5 @@
 from src.input_commands import Place, Move, Left, Right, Report
+from src.errors import CommandNotFoundError
 
 
 class ParseInput(object):
@@ -19,5 +20,4 @@ class ParseInput(object):
                 comm = command(args)
                 return comm
         
-        print('comm not found')
-        return
+        raise CommandNotFoundError()

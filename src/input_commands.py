@@ -1,5 +1,6 @@
-from src.direction import Direction
+from src.direction import Direction, InvalidDirectionError
 from src.coordinates import Coordinate
+from src.errors import InvalidDirectionError, InvalidPlaceCommandError
 
 '''
     So all the classes: 
@@ -35,14 +36,22 @@ class Place(Input):
         it checks the arguments of input and then executes allows invokation of method.
     '''
     value = "place"
+    _direction = None
+    _position = None
 
     @Input.args.setter
     def args(self, argument_values):
         Input.args.fset(self, argument_values)
-        (x,y,direction) = argument_values
+        # for place commands there should be 3 args
+        if len(argument_values) != 3:
+            raise InvalidPlaceCommandError()
 
-        self._coordinate = Coordinate(x, y)
-        self._direction = Direction(direction)
+        (x,y,direction) = argument_values
+        try:
+            self._coordinate = Coordinate(x, y)
+            self._direction = Direction(direction)
+        except InvalidDirectionError as e:
+            return
     
     def execute(self, robot):
         '''
@@ -71,7 +80,6 @@ class Move(Input):
         move the robot accordingly 
     '''
     value = "move"
-
     def execute(self, robot):
         robot.move_robot()
         return
@@ -87,6 +95,7 @@ class Left(Input):
        and 1-1 = 0 and therefore the robot is now facing north.
     '''
     value = "left"
+
     def execute(self, robot):
         robot.turn_robot(-1)
         return
@@ -101,6 +110,9 @@ class Right(Input):
        and 1 + 1 = 2 and therefore the robot is now facing south.
     '''
     value = "right"
+
     def execute(self, robot):
         robot.turn_robot(1)
         return
+
+

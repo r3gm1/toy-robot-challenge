@@ -1,3 +1,5 @@
+from src.errors import InvalidIntError 
+
 '''
     This class will be the one that deals with the coordinates and the position of the Toy Robot on the table.
     I will place more info as I create the functions required. 
@@ -29,8 +31,10 @@ class Coordinate(object):
 
     @x.setter
     def x(self, new_x):
-        self._x = int(new_x) # since we are parsing from input, ensure its an int
-        # TODO: probs add in error validation incase test case is 'alpha' as a coordinate
+        try:
+            self._x = int(new_x) # since we are parsing from input, ensure its an int
+        except:
+            raise InvalidIntError(new_x)
 
     @property
     def y(self):
@@ -38,6 +42,8 @@ class Coordinate(object):
 
     @y.setter
     def y(self, new_y):
-        self._y = int(new_y)
-        #TODO: add in error validation for test cases --> int wil throw an error on int('pop')
+        try:
+            self._y = int(new_y)
+        except:
+            raise InvalidIntError(new_y)
     
