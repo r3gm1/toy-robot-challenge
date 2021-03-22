@@ -81,7 +81,7 @@ class ToyRobot(object):
         # check if direction and coordinates are placed
         if not (self._direction or self._coordinate):
             raise NoCoordinateError()
-        status = "OUTPUT: {},{},{}".format(self._coordinate.x, self._coordinate.y, self._direction.direction)
+        status = "Output: {},{},{}".format(self._coordinate.x, self._coordinate.y, self._direction.direction.upper())
 
         return status
 

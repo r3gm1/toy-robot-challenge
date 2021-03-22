@@ -14,7 +14,7 @@ class Run(object):
 
     def run(self, line):
         try:
-            command  = self.parse_input.parse(line)
+            command  = self.parse_input.parse(line.lower())
         except InvalidPlaceCommandError as e:
             print(e)
             return

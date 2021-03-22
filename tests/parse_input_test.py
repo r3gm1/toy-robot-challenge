@@ -24,6 +24,14 @@ class TestParseInput():
         assert cmd.value == "place"
         assert cmd.args == ["1", "2", "east"]
 
+    def test_case_insensitive_place(self):
+        '''
+            Ensuring the place command is case insensitive
+        '''
+        cmd = self.parse_input.parse("PLaCE 1,2,EaST")
+
+        assert cmd.value == "place"
+        assert cmd.args == ["1", "2", "east"]
 
     def test_move_parse(self):
         '''

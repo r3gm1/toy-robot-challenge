@@ -87,7 +87,7 @@ class TestInputCommands():
         cmd.execute(self.robot)
 
         # should print exactly this 1,2,east
-        assert self.robot.print_current_status() == "OUTPUT: 1,2,east"
+        assert self.robot.print_current_status() == "Output: 1,2,EAST"
 
 
     def test_place_no_args(self):

@@ -17,9 +17,9 @@ class Direction(object):
     }
 
     def __init__(self, direction):
-        if direction not in self.direction_values:
+        if direction.lower() not in self.direction_values:
             raise InvalidDirectionError()
-        self._direction = direction
+        self._direction = direction.lower()
 
     def __eq__(self, other):
         if isinstance(other, Direction):
