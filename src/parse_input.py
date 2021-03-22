@@ -19,4 +19,4 @@ class ParseInput(object):
                 comm = command(args)
                 return comm
         
-        raise CommandNotFoundError()
+        raise CommandNotFoundError(cmd[0].strip())

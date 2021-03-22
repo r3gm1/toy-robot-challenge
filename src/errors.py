@@ -73,9 +73,7 @@ class CommandNotFoundError(Exception):
     '''
     def __init__(self, *args):
         if args:
-            self.message = args[0]
-        else:
-            self.message = "SKIPPING: Invalid Command. Please issue one of the following commands 'PLACE X,Y,F', 'MOVE', 'LEFT', 'RIGHT', 'REPORT'."
+            self.message = "SKIPPING: Invalid Command '{}'. Please issue one of the following commands 'PLACE X,Y,F', 'MOVE', 'LEFT', 'RIGHT', 'REPORT'.".format(args[0])
     
     def __str__(self):
         if self.message:
