@@ -5,6 +5,7 @@ from src.input_commands import *
 from src.toy_robot import ToyRobot
 from src.direction import Direction
 from src.coordinates import Coordinate
+from src.errors import InvalidPlaceCommandError, InvalidDirectionError
 
 class TestInputCommands():
     '''
@@ -18,7 +19,6 @@ class TestInputCommands():
         '''
             Will be used to test the place command 
         '''
-        #TODO: make another test file to test parse_input to see if commands are parsed successfully
         cmd = Place(["1", "2", "east"])
         cmd.execute(self.robot)
         assert self.robot.coordinate == Coordinate(1,2)
@@ -90,20 +90,22 @@ class TestInputCommands():
         assert self.robot.print_current_status() == "OUTPUT: 1,2,east"
 
 
+    def test_place_no_args(self):
+        '''
+            This function will be used to check if the correct error is raised when
+            no arguments are supplied with place command
+        '''
+        with pytest.raises(InvalidPlaceCommandError):
+            cmd = Place()
+            cmd.execute(self.robot)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def test_invalid_direction(self):
+        '''
+            This function will test invalid_direction suplied
+        '''
+        with pytest.raises(InvalidDirectionError):
+            cmd = Place(["1", "2", "NEAST"])
+            cmd.execute(self.robot)
     
+

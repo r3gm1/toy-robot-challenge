@@ -4,6 +4,7 @@ from src.toy_robot import ToyRobot
 from src.table import Table
 from src.direction import Direction
 from src.coordinates import Coordinate
+from src.errors import CommandNotFoundError
 
 
 class TestParseInput():
@@ -52,7 +53,12 @@ class TestParseInput():
         
 
         
-
+    def test_cmd_not_found(self):
+        '''
+            This function aims to test an invalid command 
+        '''
+        with pytest.raises(CommandNotFoundError):
+            cmd = self.parse_input.parse("autocomplete_code")
 
 
 
