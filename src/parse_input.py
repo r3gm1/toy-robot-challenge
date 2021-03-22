@@ -1,4 +1,4 @@
-from input_commands import Place, Move, Left, Right, Report
+from src.input_commands import Place, Move, Left, Right, Report
 
 
 class ParseInput(object):

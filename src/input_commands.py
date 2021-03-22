@@ -1,5 +1,5 @@
-from direction import Direction
-from coordinates import Coordinate
+from src.direction import Direction
+from src.coordinates import Coordinate
 
 '''
     So all the classes: 

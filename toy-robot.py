@@ -1,5 +1,5 @@
-from table import Table
-from run import Run
+#!/usr/bin/env python3
+from src.run import Run
 import sys
 
 '''
@@ -7,24 +7,13 @@ import sys
     The required files like creating the table, intercepting the commands will all automatically be run.
 '''
 
-# try creating a table for now
-# 
-def main():
-    '''
-        Unused--- this was only for testing purposes
-    '''
-    _table = Table()
 
-def ytb():
+def toy_robot():
     program = Run()
-    
+
     for command in sys.stdin:
         program.run(command)
 
 
 if __name__ == "__main__":
-    ytb()
-
-
-
-
+    toy_robot()
