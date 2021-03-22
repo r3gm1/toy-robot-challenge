@@ -97,19 +97,3 @@ class InvalidIntError(Exception):
         if self.message:
             return '{}'.format(self.message)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

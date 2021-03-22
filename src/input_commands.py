@@ -43,7 +43,7 @@ class Place(Input):
     def args(self, argument_values):
         Input.args.fset(self, argument_values)
         # for place commands there should be 3 args
-        if len(argument_values) != 3:
+        if not argument_values or len(argument_values) != 3:
             raise InvalidPlaceCommandError()
 
         (x,y,direction) = argument_values

@@ -4,6 +4,7 @@ from src.toy_robot import ToyRobot
 from src.table import Table
 from src.direction import Direction
 from src.coordinates import Coordinate
+from src.errors import CommandNotFoundError
 
 
 class TestParseInput():
@@ -23,6 +24,14 @@ class TestParseInput():
         assert cmd.value == "place"
         assert cmd.args == ["1", "2", "east"]
 
+    def test_case_insensitive_place(self):
+        '''
+            Ensuring the place command is case insensitive
+        '''
+        cmd = self.parse_input.parse("PLaCE 1,2,EaST")
+
+        assert cmd.value == "place"
+        assert cmd.args == ["1", "2", "east"]
 
     def test_move_parse(self):
         '''
@@ -52,7 +61,12 @@ class TestParseInput():
         
 
         
-
+    def test_cmd_not_found(self):
+        '''
+            This function aims to test an invalid command 
+        '''
+        with pytest.raises(CommandNotFoundError):
+            cmd = self.parse_input.parse("autocomplete_code")
 
 
 
