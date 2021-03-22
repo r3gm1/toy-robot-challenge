@@ -37,7 +37,7 @@ There is no other installation required. The [toy_robot.py](toy_robot.py) file i
 
 From here you should be able to run some commands according to the [CHALLENGE.md](CHALLENGE.md)
 
-The basic way to run the application would is navigate to the project directory and run: 
+The basic way to run the application is to navigate to the project directory and run: 
 ```
 	$ ./toy_robot.py
 ```
