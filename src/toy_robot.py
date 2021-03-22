@@ -1,3 +1,5 @@
+from src.errors import OffTableError, NoCoordinateError
+
 class ToyRobot(object):
     '''
         This class will be responsible for the actual Toy Robot itself.
@@ -15,7 +17,6 @@ class ToyRobot(object):
     @direction.setter
     def direction(self, direction):
         self._direction = direction
-        #TODO: check for valid directions
 
     @property
     def coordinate(self):
@@ -26,9 +27,8 @@ class ToyRobot(object):
         # check if the new coordinates are valid by calling the function created
         valid = self._table.table_boundaries.valid_coordinate(coordinate)
         if not valid:
-            print('Robot will fall of table')
-            #TODO produce correct error here
-            return
+            #print('Robot will fall of table')
+            raise OffTableError()
         
         self._coordinate = coordinate
 
@@ -54,9 +54,7 @@ class ToyRobot(object):
         '''
         if not self._direction:
             # ensure the direction is set before actually turning
-            print('no direction')
-            #TODO: error raised here
-            return
+            raise NoCoordinateError()
         
         new_direction = self._direction.turn(direction)
         self.direction = new_direction
@@ -66,12 +64,8 @@ class ToyRobot(object):
             Used to move the toy robot to new coordinates on the table
         '''
         # check if the coordinates and direction are still None
-        #if not (self._direction or self._coordinate):
-        #    print('we need to ensure robot is moving, and is placed')
-        #    #TODO: Throw proper error
-        #    return
         if not self._coordinate:
-            return
+            raise NoCoordinateError()
 
         new_coordinates = self._coordinate + (self._direction.position )
         self.coordinate = new_coordinates
@@ -86,12 +80,9 @@ class ToyRobot(object):
         '''
         # check if direction and coordinates are placed
         if not (self._direction or self._coordinate):
-            print('no values to print')
-            #TODO: throw proper error
-            return
-        
-        status = "{},{},{}".format(self._coordinate.x, self._coordinate.y, self._direction.direction)
-        print('Remove print: status {}'.format(status))
+            raise NoCoordinateError()
+        status = "OUTPUT: {},{},{}".format(self._coordinate.x, self._coordinate.y, self._direction.direction)
 
         return status
+
 

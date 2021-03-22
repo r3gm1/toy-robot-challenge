@@ -1,4 +1,6 @@
 from src.coordinates import Coordinate
+from src.errors import InvalidDirectionError
+
 '''
     This class will be responsible for the direction aspect of the moving robot.
 '''
@@ -16,10 +18,7 @@ class Direction(object):
 
     def __init__(self, direction):
         if direction not in self.direction_values:
-            # TODO: here we should handle an error --
-            print('invalid', direction)
-            return
-
+            raise InvalidDirectionError()
         self._direction = direction
 
     def __eq__(self, other):
@@ -53,7 +52,5 @@ class Direction(object):
         direction_position = (position + direction) % 4 # ==> 4 as there are 4 directions
 
         return self.__class__(self.direction_values[direction_position])
-
-
 
 
