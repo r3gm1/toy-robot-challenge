@@ -7,9 +7,10 @@ from src.coordinates import Coordinate
     EXTENSIBILITY: We may want to make it a bit extensible by allowing such a table to be made based on parameters.
 '''
 class Table(object):
-    def __init__(self):
+    def __init__(self, size_horizontal=5, size_vertical=5):
         origin = Coordinate(0,0) # south west most corner as specified in the SPEC
-        max_top_right = Coordinate(4,4) #The highest and most-right point north-east most corner
+        #max_top_right = Coordinate(4,4) #The highest and most-right point north-east most corner
+        max_top_right = Coordinate((size_horizontal - 1), (size_vertical - 1)) # dynamic table size
         # therefore the table we can create using these constraints
         self.table_boundaries = TableCoordinates(origin, max_top_right)
 
@@ -19,7 +20,7 @@ class TableCoordinates(object):
         This class will be responsible for holding the table coordinates  
         We know that currently the table will be 5 X 5.
         So for now code it such that a 5X5 table is auto created, however maybe have extensibility such that 
-        any dimension can be passed as arguments and then create the table.
+        any dimension can be passed as arguments and then create the table. ## UPDATE --> has been updated such that table size can change
 
         The parameters: origin and max_top_right --> convey the size of the table that are the constraint
         and Robot should not have coorinates that exceed these points. 
