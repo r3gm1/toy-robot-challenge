@@ -90,8 +90,8 @@ class ToyRobot(object):
             #TODO: throw proper error
             return
         
-        status = "{},{},{}".format(self._coordinate.x, self._coordinate.y, self._direction.direction)
-        print('Remove print: status {}'.format(status))
+        status = "OUTPUT: {},{},{}".format(self._coordinate.x, self._coordinate.y, self._direction.direction)
+        #print('Remove print: status {}'.format(status))
 
         return status
 

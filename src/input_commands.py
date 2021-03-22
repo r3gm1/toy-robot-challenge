@@ -62,7 +62,7 @@ class Report(Input):
     '''
     value = "report"
     def execute(self, robot):
-        print("OUTPUT: {}".format(robot.print_current_status()))
+        print("{}".format(robot.print_current_status()))
         return
 
 
