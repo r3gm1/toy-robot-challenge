@@ -106,7 +106,9 @@ Output: 0,3,SOUTH
 ## Assumptions
 There are many different ways this application can be solved. I chose to approach it in a more OO manner. If I was to deploy the solution in a production environment I would create a docker container and deploy an instance of the application. 
 
-Now based on some of the points presented in [CHALLENGE.md](CHALLENGE.md), it mentions to make the code as extensible as possible. So therefore I made it such that, the Table can be any dimensions in the shape of a rectangle. 
+Now based on some of the points presented in [CHALLENGE.md](CHALLENGE.md), it mentions to make the code as extensible as possible. So therefore I made it such that, the Table can be any dimensions in the shape of a rectangle. If you'd like to change the dimensions of the table please do the following.
+
+Use your favourite text editor (vim!) to edit src/run.py, you'll see on line 12 a table is created with dimensions 5,5. Change it to whatever dimensions suit your needs and run the application as usual. And yes you can create a table of size 0 X 0 --> this will not throw an error however it will present a user friendly message.
 
 I also ensured that commands and user input are case insensitive. 
 

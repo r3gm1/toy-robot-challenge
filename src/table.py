@@ -10,6 +10,8 @@ class Table(object):
     def __init__(self, size_horizontal=5, size_vertical=5):
         origin = Coordinate(0,0) # south west most corner as specified in the SPEC
         #max_top_right = Coordinate(4,4) #The highest and most-right point north-east most corner
+        if (size_horizontal == 0 or size_vertical == 0):
+            print("Your table dimensions are {} x {}. Did you intentionally want 0? If not please change in src/run.py".format(size_horizontal, size_vertical))
         max_top_right = Coordinate((size_horizontal - 1), (size_vertical - 1)) # dynamic table size
         # therefore the table we can create using these constraints
         self.table_boundaries = TableCoordinates(origin, max_top_right)

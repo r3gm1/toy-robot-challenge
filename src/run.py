@@ -10,7 +10,7 @@ class Run(object):
 
     def reset(self):
         self.table = Table(5,5) # as per challange --> 5 x 5 table created on startup
-        #self.table = Table(1,4) --> create a custom size table by commenting the above line and uncommenting this
+        #self.table = Table(1,4) #--> create a custom size table by commenting the above line and uncommenting this
         self.robot = ToyRobot(self.table)
 
     def run(self, line):
