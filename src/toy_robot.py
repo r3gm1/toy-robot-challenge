@@ -64,6 +64,7 @@ class ToyRobot(object):
             Used to move the toy robot to new coordinates on the table
         '''
         # check if the coordinates and direction are still None
+        print('wut', self._coordinate)
         if not self._coordinate:
             raise NoCoordinateError()
 
